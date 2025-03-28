@@ -105,9 +105,9 @@ def non_overlapping_template_matching_test(bits):
 
     chisq = 0.0  # Compute Chi-Square
     for j in range(N):
-        chisq += ((W[j] - mu)**2)/(sigma**2)
+        chisq += ((W[j] - mu)**2)/(sigma)
 
-    p = gammaincc(N/2.0, chisq/2.0) # Compute P value
+    p = gammaincc((N-1)/2.0, chisq/2.0) # Compute P value
 
     success = ( p >= 0.01)
     return (success,p,None)
